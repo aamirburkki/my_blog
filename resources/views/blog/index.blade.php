@@ -54,18 +54,18 @@
                     @foreach($blogs as $item)
                         <tr>
                             <td>
-                                <img src="{{ $item->img ?? '' }}" width="100px">    
-                            {{ $item->title ?? '' }}</td>
+                                <img src="{{ asset('assets/images/'.$item->img) }}" width="100px">
+                            </td>
                             <td>{{ $item->title ?? '' }}</td>
                             <td>{{ $item->description ?? '' }}</td>
                             <td>
-                                {{ $item->auther ?? '' }}
+                                {{ $item->author ?? '' }}
                             </td>
                             <td>
                                 {{ $item->user->name ?? '' }}
                             </td>
                             <td>
-                            <form method="POST" action="{{ url('users/'.$item->id) }}">
+                            <form method="POST" action="{{ url('blogs/'.$item->id) }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <div class="form-group">
