@@ -25,7 +25,11 @@ class BlogController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         //
+=======
+        return view('blog.index');
+>>>>>>> 2410da8878131d41dc8b1b01ef368bc014e903eb
     }
 
     /**

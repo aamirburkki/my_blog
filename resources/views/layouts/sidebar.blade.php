@@ -30,6 +30,7 @@
               </p>
             </a>
           </li>
+          @hasanyrole('admin')
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -47,7 +48,32 @@
               </li>
             </ul>
           </li>
-          
+          @endhasanyrole
+          @hasanyrole('admin|user')
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Blogs
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('blogs') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Blogs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('blogs/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>create Blog</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endhasanyrole
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
