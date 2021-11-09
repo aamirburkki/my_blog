@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\RegisterUserMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AuthController extends Controller
 {
@@ -16,7 +22,7 @@ class AuthController extends Controller
     {
         return view('login');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +30,8 @@ class AuthController extends Controller
      */
     public function create()
     {
-        //
+        // Role::create(['name' => 'user']);
+        return view("register");
     }
 
     /**
@@ -39,7 +46,7 @@ class AuthController extends Controller
             'password' => 'required',
             'email' => 'required'
         ], [
-            'name.required' => 'Name is required',
+            'email.required' => 'Email is required',
             'password.required' => 'Password is required'
         ]);
 
@@ -79,9 +86,26 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([ 
+            'name' => 'required|string|max:20', 
+            'email' => 'required|email|unique:users,email', 
+            'password' => 'required', 'confirm_password' => 
+            'required|same:password', 
+        ], [ 
+            'name.required' => 'Name is sohail', 
+            'password.required' => 'Password is required' ]); 
+
+            $user = User::create([
+                'name' =>  $request->name, 
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+                $user->assignRole('user');
+                Mail::to($request->email)->send(new RegisterUserMail($user)); 
+                return back()->with('success','You are registered Successfully');
+            
     }
 
     /**

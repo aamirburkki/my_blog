@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('login','AuthController@index')->name('login');
+Route::get('/','AuthController@create')->name('signup');
+Route::post('user/register','AuthController@update');
 Route::post('user/auth','AuthController@store');
-
 Route::post('logout', 'AuthController@destroy')->name('logout');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('dashboard','DashboardController@index');
+    Route::resource('users','UserController');
 });
