@@ -15,7 +15,14 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all()->where('user_id', Auth::user()->id);
+        if(in_array('admin',Auth::user()->getRoleNames()->toArray()))
+        {
+            $blogs = Blog::all(); 
+        }
+        else
+        {
+            $blogs = Blog::all()->where('user_id', Auth::user()->id);
+        }
         return view('blog.index',compact('blogs'));
     }
 

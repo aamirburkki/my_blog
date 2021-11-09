@@ -59,7 +59,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item {{ (request()->segment(1) == 'blogs') ? 'active' : '' }}">
                 <a href="{{ url('blogs') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Blogs</p>
