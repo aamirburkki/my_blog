@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('title')
 <title>My Blog | Dashboard</title>
@@ -54,18 +55,31 @@
                     @foreach($blogs as $item)
                         <tr>
                             <td>
-                                <img src="{{ $item->img ?? '' }}" width="100px">    
+<<<<<<< HEAD
+                                <img src="{{ $item->img ?? '' }}" width="100px">
                             {{ $item->title ?? '' }}</td>
                             <td>{{ $item->title ?? '' }}</td>
                             <td>{{ $item->description ?? '' }}</td>
                             <td>
                                 {{ $item->auther ?? '' }}
+=======
+                                <img src="{{ asset('assets/images/'.$item->img) }}" width="100px">
+                            </td>
+                            <td>{{ $item->title ?? '' }}</td>
+                            <td>{{ $item->description ?? '' }}</td>
+                            <td>
+                                {{ $item->author ?? '' }}
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
                             </td>
                             <td>
                                 {{ $item->user->name ?? '' }}
                             </td>
                             <td>
+<<<<<<< HEAD
                             <form method="POST" action="{{ url('users/'.$item->id) }}">
+=======
+                            <form method="POST" action="{{ url('blogs/'.$item->id) }}">
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <div class="form-group">

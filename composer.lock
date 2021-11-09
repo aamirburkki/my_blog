@@ -2852,16 +2852,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "5.3.1",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "ee0a50ad174e7f8b14bd17dd2a79ab51ccbac3df"
+                "reference": "58d5eb6c7b0eafa8bdf0a93d1ca5c214a05344cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/ee0a50ad174e7f8b14bd17dd2a79ab51ccbac3df",
-                "reference": "ee0a50ad174e7f8b14bd17dd2a79ab51ccbac3df",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/58d5eb6c7b0eafa8bdf0a93d1ca5c214a05344cb",
+                "reference": "58d5eb6c7b0eafa8bdf0a93d1ca5c214a05344cb",
                 "shasum": ""
             },
             "require": {

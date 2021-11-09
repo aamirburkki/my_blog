@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +18,18 @@ class BlogController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $blogs = Blog::all();
+=======
+        if(in_array('admin',Auth::user()->getRoleNames()->toArray()))
+        {
+            $blogs = Blog::all(); 
+        }
+        else
+        {
+            $blogs = Blog::all()->where('user_id', Auth::user()->id);
+        }
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
         return view('blog.index',compact('blogs'));
     }
 
@@ -25,7 +40,11 @@ class BlogController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         //
+=======
+        return view('blog.create');
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
     }
 
     /**
@@ -36,7 +55,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         //
+=======
+        $blog = new Blog;
+        $blog->title = $request->title;
+        $blog->author = $request->author;
+        if($request->hasfile('img')) {
+            $img = $request->file('img')->getClientOriginalName();
+            $request->img->move(public_path('assets/images'), $img);
+        }
+        $blog->img = $img;
+        $blog->user_id = Auth::user()->id;
+        $blog->description = $request->description;
+        $blog->save();
+        return back()->with('success','Blog Added Successfully.');
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
     }
 
     /**
@@ -81,6 +115,11 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+<<<<<<< HEAD
         //
+=======
+        $blog->delete();
+        return back();
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
     }
 }

@@ -20,6 +20,7 @@ class AuthController extends Controller
      */
     public function index()
     {
+        // Role::create(['name' => 'admin']);
         return view('login');
     }
     
@@ -30,7 +31,11 @@ class AuthController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         // Role::create(['name' => 'user']);
+=======
+        
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
         return view("register");
     }
 

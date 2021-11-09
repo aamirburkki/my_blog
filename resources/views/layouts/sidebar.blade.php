@@ -30,6 +30,10 @@
               </p>
             </a>
           </li>
+<<<<<<< HEAD
+=======
+          @hasanyrole('admin')
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -38,7 +42,10 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ url('users') }}" class="nav-link">
@@ -48,10 +55,43 @@
               </li>
             </ul>
           </li>
+<<<<<<< HEAD
 
+=======
+          @endhasanyrole
+          @hasanyrole('admin|user')
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Blogs
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item {{ (request()->segment(1) == 'blogs') ? 'active' : '' }}">
+                <a href="{{ url('blogs') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Blogs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('blogs/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>create Blog</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endhasanyrole
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+<<<<<<< HEAD
   </aside>
+=======
+  </aside>
+>>>>>>> 5cb28c979634828028105e9f774cc081bdbea5bb
